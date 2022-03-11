@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import NavbarItem from './components/NavbarItem'
 import Appbar from './components/Appbar'
 import IconButton from './components/IconButton'
+import Games from './pages/Games'
 import {
   MdGames,
   MdOutlineGames,
@@ -23,8 +24,8 @@ function App() {
 
   return (
     <>
-      <Appbar>
-        <IconButton>
+      <Appbar sticky>
+        <IconButton onClick={() => console.log('Icon Clicked')}>
           <MdGames />
         </IconButton>
       </Appbar>
@@ -42,6 +43,7 @@ function App() {
           News
         </NavbarItem>
       </Navbar>
+      <Games />
     </>
   )
 }
