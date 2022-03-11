@@ -1,13 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import clsx from 'clsx'
-import classes from './Navbar.module.css'
+import Surface from '../Surface'
+import styled from 'styled-components/macro'
+
+const Root = styled(Surface)`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+  grid-auto-rows: 80px;
+  column-gap: 8px;
+  z-index: 200;
+`
 
 function Navbar(props) {
-  const { children, className, value, onChange } = props
+  const { value, onChange, children, ...rootProps } = props
 
   return (
-    <nav className={clsx(classes.root, className)}>
+    <Root elevation={2} surfaceColor={'surface'} {...rootProps}>
       {React.Children.map(children, (child, childIndex) => {
         const childKey = child.props.value === undefined ? childIndex : child.props.key
 
@@ -17,13 +29,12 @@ function Navbar(props) {
           onChange,
         })
       })}
-    </nav>
+    </Root>
   )
 }
 
 Text.propTypes = {
   value: PropTypes.number,
-  className: PropTypes.string,
   children: PropTypes.element,
   onChange: PropTypes.func,
 }
