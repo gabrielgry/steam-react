@@ -6,7 +6,7 @@ import Text from '../../components/Text'
 import Card from '../../components/Card'
 import CardImage from '../../components/CardImage'
 import StateLayer from '../../components/StateLayer'
-import data from '../../data/games'
+import data from '../../assets/data/games'
 
 const GamesGrid = styled.div`
   display: grid;
@@ -21,26 +21,25 @@ const GamesGrid = styled.div`
 function Games(props) {
   return (
     <Page>
-      <Text type='headline-large'>Last Played</Text>
+      <Text type='headline-small'>Last Played</Text>
       <GamesGrid>
         {data.lastPlayed.map(gameId => {
           const game = data.games.find(game => game.id === gameId)
-
           return (
             <Card type='filled' key={gameId}>
               <StateLayer />
-              <CardImage src={`steam/${game.id}_library_600x900.jpg`} />
+              <CardImage aspectRatio='600 / 900' src={`steam/${game.id}_library_600x900.jpg`} />
             </Card>
           )
         })}
       </GamesGrid>
-      <Text type='headline-large'>All Games</Text>
+      <Text type='headline-small'>All Games</Text>
       <GamesGrid>
         {data.games.map(game => {
           return (
             <Card type='filled' key={game.id}>
               <StateLayer />
-              <CardImage src={`steam/${game.id}_library_600x900.jpg`} />
+              <CardImage aspectRatio='600 / 900' src={`steam/${game.id}_library_600x900.jpg`} />
             </Card>
           )
         })}
