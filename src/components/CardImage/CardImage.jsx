@@ -9,14 +9,15 @@ const Root = styled.img`
     if ($type === 'corner') return '12px 0 0 0'
     if ($type === 'top') return '12px 12px 0 0'
   }};
+  aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
   height: auto;
   width: 100%;
 `
 
 function CardImage(props) {
-  const { type, ...rootProps } = props
+  const { type, aspectRatio, ...rootProps } = props
 
-  return <Root $type={type} {...rootProps} />
+  return <Root $type={type} $aspectRatio={aspectRatio} {...rootProps} />
 }
 
 CardImage.defaultProps = {
@@ -25,6 +26,7 @@ CardImage.defaultProps = {
 
 CardImage.propTypes = {
   type: PropTypes.oneOf(['full', 'corner', 'top']),
+  aspectRatio: PropTypes.string,
 }
 
 export default CardImage
