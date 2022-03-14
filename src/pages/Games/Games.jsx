@@ -20,7 +20,7 @@ const GamesGrid = styled.div`
 
 function Games(props) {
   return (
-    <Page>
+    <Page navbar>
       <Text type='headline-small'>Last Played</Text>
       <GamesGrid>
         {data.lastPlayed.map(gameId => {

@@ -12,11 +12,11 @@ const Root = styled(Surface)`
   width: 100%;
   min-height: ${({ fullHeight }) => (fullHeight ? '100vh' : 'calc(100vh - 64px)')};
   padding: 16px;
-  padding-bottom: 80px;
+  padding-bottom: ${({ navbar }) => (navbar ? '80px' : '0')};
 `
 
 function Page(props) {
-  const { spacer, fullHeight, children, ...rootProps } = props
+  const { spacer, navbar, fullHeight, children, ...rootProps } = props
 
   return (
     <>
@@ -26,6 +26,7 @@ function Page(props) {
         surfaceColor={'background'}
         contentColor={'onBackground'}
         fullHeight={fullHeight}
+        navbar={navbar}
         {...rootProps}
       >
         {children}
@@ -37,6 +38,7 @@ function Page(props) {
 Page.propTypes = {
   children: PropTypes.node,
   spacer: PropTypes.bool,
+  navbar: PropTypes.bool,
   fullHeight: PropTypes.bool,
   surfaceColor: PropTypes.string,
   contentColor: PropTypes.string,
