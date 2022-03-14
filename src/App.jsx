@@ -2,7 +2,8 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import NavbarItem from './components/NavbarItem'
 import Appbar from './components/Appbar'
-import IconButton from './components/IconButton'
+import Logo from './components/Logo'
+import Avatar from './components/Avatar'
 import Games from './pages/Games'
 import {
   MdGames,
@@ -13,7 +14,9 @@ import {
   MdOutlineGroups,
   MdFeed,
   MdOutlineFeed,
+  MdOutlineAccountCircle,
 } from 'react-icons/md'
+import { FaSteam } from 'react-icons/fa'
 
 function App() {
   const [state, setState] = useState(0)
@@ -25,9 +28,8 @@ function App() {
   return (
     <>
       <Appbar sticky>
-        <IconButton onClick={() => console.log('Icon Clicked')}>
-          <MdGames />
-        </IconButton>
+        <Logo icon={<FaSteam />}>Steam</Logo>
+        <Avatar placeholderIcon={<MdOutlineAccountCircle />} />
       </Appbar>
       <Navbar value={state} onChange={(event, value) => handleChange(event, value)}>
         <NavbarItem icon={<MdOutlineGames />} iconActive={<MdGames />}>
