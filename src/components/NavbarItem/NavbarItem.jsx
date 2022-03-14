@@ -50,7 +50,7 @@ const Indicator = styled.div`
   background-color: ${({ theme }) => theme.secondaryContainer};
   height: 32px;
   border-radius: 16px;
-  animation-duration: 250ms;
+  animation-duration: 200ms;
   animation-timing-function: ease-out;
 `
 
