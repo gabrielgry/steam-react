@@ -12,6 +12,7 @@ const Root = styled(Surface)`
   width: 100%;
   min-height: ${({ fullHeight }) => (fullHeight ? '100vh' : 'calc(100vh - 64px)')};
   padding: 16px;
+  padding-bottom: 80px;
 `
 
 function Page(props) {
