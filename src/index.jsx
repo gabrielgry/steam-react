@@ -14,10 +14,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
 
   html, body, #root {
     width: 100%;
     min-height: 100vh;
+    background-color: ${({theme}) => theme.surface}
   }
 }
 `
