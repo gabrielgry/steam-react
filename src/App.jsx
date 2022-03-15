@@ -2,9 +2,12 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import NavbarItem from './components/NavbarItem'
 import Appbar from './components/Appbar'
+import Paginator from './components/Paginator'
 import Logo from './components/Logo'
 import Avatar from './components/Avatar'
 import Games from './pages/Games'
+import Archivements from './pages/Archivements'
+
 import {
   MdGames,
   MdOutlineGames,
@@ -19,10 +22,10 @@ import {
 import { FaSteam } from 'react-icons/fa'
 
 function App() {
-  const [state, setState] = useState(0)
+  const [page, setPage] = useState(0)
 
   const handleChange = (event, value) => {
-    setState(value)
+    setPage(value)
   }
 
   return (
@@ -31,7 +34,7 @@ function App() {
         <Logo icon={<FaSteam />}>Steam</Logo>
         <Avatar placeholderIcon={<MdOutlineAccountCircle />} />
       </Appbar>
-      <Navbar value={state} onChange={(event, value) => handleChange(event, value)}>
+      <Navbar value={page} onChange={(event, value) => handleChange(event, value)}>
         <NavbarItem icon={<MdOutlineGames />} iconActive={<MdGames />}>
           Games
         </NavbarItem>
@@ -45,7 +48,12 @@ function App() {
           News
         </NavbarItem>
       </Navbar>
-      <Games />
+      <Paginator page={page}>
+        <Games />
+        <Archivements />
+        <Games />
+        <Games />
+      </Paginator>
     </>
   )
 }
