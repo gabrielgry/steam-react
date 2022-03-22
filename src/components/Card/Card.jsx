@@ -6,7 +6,7 @@ import Surface from '../Surface'
 const Root = styled(Surface)`
   position: relative;
   border-radius: 12px;
-  outline: ${({ type, theme }) => type === 'outlined' && `1px solid ${theme.outline}`};
+  border: ${({ type, theme }) => type === 'outlined' && `1px solid ${theme.outline}`};
 `
 
 function Card(props) {

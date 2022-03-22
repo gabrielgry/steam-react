@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components/macro'
 import { transparentize } from 'color2k'
 
-const RIPPLE_EFFECT_DURATION = 400
+const RIPPLE_EFFECT_DURATION = 600
 
 const showRipple = keyframes`
   from {
@@ -80,7 +80,9 @@ function StateLayer(props) {
       let size = getRippleSize(event, parent)
       applyRipplePositionAndSize(ripple, size, event)
       ripple.classList.add('show')
-      timerId = setTimeout(() => ripple.classList.remove('show'), RIPPLE_EFFECT_DURATION) //Reset tge ripple after animation ended
+      timerId = setTimeout(() => {
+        ripple.classList.remove('show')
+      }, RIPPLE_EFFECT_DURATION) //Reset tge ripple after animation ended
     }
 
     parent.addEventListener('mousedown', handleParentClick)
@@ -89,8 +91,14 @@ function StateLayer(props) {
   }, [rootRef, rippleRef])
 
   return (
-    <Root ref={rootRef} $contentColor={contentColor}>
-      <Ripple ref={rippleRef} $contentColor={contentColor} />
+    <Root
+      ref={rootRef}
+      $contentColor={contentColor}
+    >
+      <Ripple
+        ref={rippleRef}
+        $contentColor={contentColor}
+      />
     </Root>
   )
 }

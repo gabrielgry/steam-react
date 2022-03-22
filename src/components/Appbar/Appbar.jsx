@@ -28,11 +28,11 @@ function Appbar(props) {
 
   useEffect(() => {
     if (!sticky) return
-    const cachedRootdRef = rootRef.current
+    const cachedRootRef = rootRef.current
     const stickyObserver = new IntersectionObserver(handleStickyChange, { threshold: 1 })
-    if (cachedRootdRef) stickyObserver.observe(cachedRootdRef)
+    if (cachedRootRef) stickyObserver.observe(cachedRootRef)
     return () => {
-      if (cachedRootdRef) stickyObserver.unobserve(cachedRootdRef)
+      if (cachedRootRef) stickyObserver.unobserve(cachedRootRef)
     }
   }, [rootRef, sticky])
 

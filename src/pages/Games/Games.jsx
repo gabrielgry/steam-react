@@ -6,7 +6,7 @@ import Text from '../../components/Text'
 import Card from '../../components/Card'
 import CardImage from '../../components/CardImage'
 import StateLayer from '../../components/StateLayer'
-import data from '../../assets/data/games'
+import userGames from '../../assets/data/userGames'
 
 const GamesGrid = styled.div`
   display: grid;
@@ -23,23 +23,34 @@ function Games(props) {
     <Page navbar>
       <Text type='headline-small'>Last Played</Text>
       <GamesGrid>
-        {data.lastPlayed.map(gameId => {
-          const game = data.games.find(game => game.id === gameId)
+        {userGames.lastPlayed.map(gameId => {
           return (
-            <Card type='filled' key={gameId}>
+            <Card
+              type='filled'
+              key={gameId}
+            >
               <StateLayer />
-              <CardImage aspectRatio='600 / 900' src={`steam/${game.id}_library_600x900.jpg`} />
+              <CardImage
+                aspectRatio='600 / 900'
+                src={`steam/${gameId}_library_600x900.jpg`}
+              />
             </Card>
           )
         })}
       </GamesGrid>
       <Text type='headline-small'>All Games</Text>
       <GamesGrid>
-        {data.games.map(game => {
+        {userGames.games.map(game => {
           return (
-            <Card type='filled' key={game.id}>
+            <Card
+              type='filled'
+              key={game.id}
+            >
               <StateLayer />
-              <CardImage aspectRatio='600 / 900' src={`steam/${game.id}_library_600x900.jpg`} />
+              <CardImage
+                aspectRatio='600 / 900'
+                src={`steam/${game.id}_library_600x900.jpg`}
+              />
             </Card>
           )
         })}

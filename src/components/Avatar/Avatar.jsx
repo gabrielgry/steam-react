@@ -14,11 +14,11 @@ const Image = styled.img`
 `
 
 function Avatar(props) {
-  const { src, srcset, alt, placeholderIcon, ...rootProps } = props
+  const { src, alt, placeholderIcon, ...rootProps } = props
 
   return (
     <AvatarButton contentColor='onSurfaceVariant' {...rootProps}>
-      {src || srcset ? <Image src={src} srcset={srcset} alt={alt} width={30} height={30} /> : placeholderIcon}
+      {src ? <Image src={src} alt={alt} width={30} height={30} /> : placeholderIcon}
     </AvatarButton>
   )
 }
@@ -26,8 +26,7 @@ function Avatar(props) {
 Avatar.defaultProps = {}
 
 Avatar.propTypes = {
-  srsc: PropTypes.string,
-  srcset: PropTypes.string,
+  src: PropTypes.string,
   alt: PropTypes.string,
   placeholderIcon: PropTypes.element,
 }

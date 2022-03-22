@@ -6,7 +6,7 @@ import Paginator from './components/Paginator'
 import Logo from './components/Logo'
 import Avatar from './components/Avatar'
 import Games from './pages/Games'
-import Archivements from './pages/Archivements'
+import Achievements from './pages/Achievements'
 
 import {
   MdGames,
@@ -39,7 +39,7 @@ function App() {
           Games
         </NavbarItem>
         <NavbarItem icon={<MdOutlineEmojiEvents />} iconActive={<MdEmojiEvents />}>
-          Archivements
+          Achievements
         </NavbarItem>
         <NavbarItem icon={<MdOutlineGroups />} iconActive={<MdGroups />}>
           Friends
@@ -50,7 +50,7 @@ function App() {
       </Navbar>
       <Paginator page={page}>
         <Games />
-        <Archivements />
+        <Achievements />
         <Games />
         <Games />
       </Paginator>
